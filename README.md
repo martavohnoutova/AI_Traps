@@ -233,6 +233,23 @@ The frontend is a single-page HTML5 application (`index.html`) with zero externa
 - **Model Info Display:** Fetches dynamic model descriptions (strengths, weaknesses, parameters) from the backend cache
 - **Game Over Summary:** Renders a comprehensive results table with per-room scores and pass/fail statistics
 
+## Screenshots
+
+### Voting and Gaming Phase
+![Voting Phase](img/frontend1.png)
+*Spectator voting interface showing tested model info, challenge description, and 1–5 grading scale*
+
+### Result Phase
+![Result Phase](docs/img/result.png)
+*Grade visualization with color-coded result box (green = grade 1, red = grade 5)*
+
+### Game Over
+![Game Over](docs/img/gameover.png)
+*Final results table with per-room scores and pass/fail statistics*
+
+### Benchmark
+![Benchmark](img/benchmark_runs.png)
+*Terminal output of full 9-model benchmark run*
 
 ## Kaggle Capstone
 

@@ -132,6 +132,15 @@ python3 benchmark.py --intro-duration 0.1 --vote-duration 0.5 --result-duration 
 # All CLI flags
 python3 benchmark.py --help
 ```
+### Running Tests
+
+```bash
+# Run all regression tests
+python3 test_room1_evaluator.py
+python3 test_room2_evaluator.py
+python3 test_room3_evaluator.py
+python3 test_room4_evaluator.py
+```
 ### CLI Reference
 
 | Flag | Default | Description |

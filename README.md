@@ -213,6 +213,26 @@ python3 semantic_judge.py \
 | `diagnose.py` | Independent cognitive audit module pulling decoupled conversation logs.|
 | `index.html` | Real-time HTML5 client spectator viewport.|
 
+## Backend Architecture
+
+The backend is an asynchronous FastAPI application (`shadowrun_engine.py`) that orchestrates the entire testing pipeline:
+
+- **Game Loop:** A state machine cycling through phases (intro → voting → pending_action → result → next room)
+- **Database:** SQLite with WAL mode for concurrent reads/writes. `action_log` table stores granular evaluation metrics (grade 1–5, stage, score_change)
+- **Ollama Integration:** HTTP POST requests to local Ollama API (port 11434) with configurable timeouts
+- **MCP Server:** A separate process (`shadowrun_mcp_server.py`) implementing the Model Context Protocol for secure tool abstraction
+- **Voting API:** Real-time spectator voting endpoints accepting 1–5 scale scores with session isolation
+
+## Frontend Architecture
+
+The frontend is a single-page HTML5 application (`index.html`) with zero external dependencies beyond a QR code library:
+
+- **Phase Rendering:** Polls `/game_state` every second and renders the appropriate screen (intro, voting, pending, result, game_over)
+- **Dynamic QR Code:** Generates voting URLs containing session ID, room ID, and model name using `qrcode.js`
+- **Grade Visualization:** Color-coded result boxes (green for grade 1–2, yellow for 3, orange for 4, red for 5)
+- **Model Info Display:** Fetches dynamic model descriptions (strengths, weaknesses, parameters) from the backend cache
+- **Game Over Summary:** Renders a comprehensive results table with per-room scores and pass/fail statistics
+
 
 ## Kaggle Capstone
 

@@ -239,12 +239,16 @@ The frontend is a single-page HTML5 application (`index.html`) with zero externa
 ![Voting Phase](img/frintend1.png)
 *Spectator voting interface showing tested model info, challenge description, and 1–5 grading scale*
 
+### Intro Phase
+![Intro Phase](img/frintend0.png)
+
+*Grade visualization with color-coded result box (green = grade 1, red = grade 5)*
 ### Result Phase
 ![Result Phase](img/frintend2.png)
 *Grade visualization with color-coded result box (green = grade 1, red = grade 5)*
 
 ### Game Over
-![Game Over](img/gameover.png)
+![Game Over](img/frintend3.png)
 *Final results table with per-room scores and pass/fail statistics*
 
 ### Benchmark

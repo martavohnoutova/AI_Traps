@@ -22,7 +22,7 @@ The framework splits quality tracking across a specialized, two-stage arbitratio
 
 1.  **Stage 1 — Regex Pre-Check:** Fast exact-match verification against room keyword patterns. A pattern hit immediately records **Grade 1 (Excellent)**, short-circuiting the pipeline with zero model compute costs.
 2.  **Stage 2 — Semantic Arbitration:** If the regex misses due to formatting padding, an asynchronous call invokes a local `phi4:latest` instance pinned to a deterministic `temperature = 0.0`. It evaluates the output against an unyielding gold standard on a Czech school scale (1–5). 
-    *   *The Protected Grade 1 Rule:* The semantic tier is restricted to grades 2–5. If the judge attempts to assign a 1, the orchestrator automatically normalizes it to a 2 to preserve the literal precision authority of the Stage 1 regex tier.
+    *   *The Semantic Grade 1 Principle:* Unlike traditional pipelines that restrict semantic judges to lower grades, our arbitrator is permitted to award the highest score (Grade 1) if the response is conceptually flawless even when the regex missed the exact keyword. The `stage` field (`regex` vs `semantic`) preserves the distinction between literal keyword hits and semantically perfect answers.
 
 ### Four Testing Rooms (Agent Skills Library)
 
@@ -71,7 +71,7 @@ git clone [https://github.com/martavohnoutova/AI_Traps.git](https://github.com/m
 cd AI_Traps
 
 # Install core dependencies
-pip install fastapi uvicorn httpx pydantic opentelemetry-api
+pip install fastapi uvicorn httpx pydantic 
 
 # Pull required models to local Ollama pool
 ollama pull phi4:latest
@@ -207,7 +207,7 @@ python3 semantic_judge.py \
 
 ## Kaggle Capstone
 
-This project is submitted to the **Kaggle Capstone: AI Agents — Intensive Vibe Coding Course with Google**. See our official Writeup for detailed multi-turn OpenTelemetry specifications and systemic trust decay calculations.
+This project is submitted to the **Kaggle Capstone: AI Agents — Intensive Vibe Coding Course with Google**. See our official Writeup for detailed methodology, benchmark results, and architectural analysis.
 
 ## Team
 

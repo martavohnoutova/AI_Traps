@@ -18,7 +18,7 @@ The system runs entirely locally on an Ubuntu deployment host, using FastAPI, SQ
 
 The framework splits quality tracking across a specialized, two-stage arbitration pipeline to eliminate false-negative penalties caused by conversational variations:
 
-![Semantic Judge](semantic_judge.jpg)
+![Semantic Judge](SemanticJudgeFlow.png)
 
 1.  **Stage 1 — Regex Pre-Check:** Fast exact-match verification against room keyword patterns. A pattern hit immediately records **Grade 1 (Excellent)**, short-circuiting the pipeline with zero model compute costs.
 2.  **Stage 2 — Semantic Arbitration:** If the regex misses due to formatting padding, an asynchronous call invokes a local `phi4:latest` instance pinned to a deterministic `temperature = 0.0`. It evaluates the output against an unyielding gold standard on a Czech school scale (1–5). 

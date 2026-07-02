@@ -213,7 +213,7 @@ python3 semantic_judge.py \
 | `diagnose.py` | Independent cognitive audit module pulling decoupled conversation logs.|
 | `index.html` | Real-time HTML5 client spectator viewport.|
 
-## Backend Architecture
+## Backend Architecture 
 
 The backend is an asynchronous FastAPI application (`shadowrun_engine.py`) that orchestrates the entire testing pipeline:
 

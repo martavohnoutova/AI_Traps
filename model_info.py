@@ -13,7 +13,7 @@ import time
 import asyncio
 import traceback
 
-DB_PATH = "/mnt/private/n8n/shadowrun.db"
+DB_PATH = "/mnt/private/n8n/model_cache.db"
 INFO_MODEL = "gemma4:26b"
 CACHE_TTL = 86400  # 24 hodin
 
